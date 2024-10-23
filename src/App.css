@@ -3,8 +3,13 @@
     animation: float 2.5s ease-in-out infinite;
 }
 
-.main_heading , .paraGraph{
-    filter: drop-shadow(2px 2px 50px  #40a2e4);
+
+
+.glowtext{
+  filter: drop-shadow(2px 2px 50px  #40a2e4);
+}
+.glowbox{
+  filter: drop-shadow(2px 2px 100px  rgba(64, 162, 228,0.3));
 }
 
 @keyframes float {
