@@ -11,7 +11,7 @@ const Hero = ({props}) => {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY === 0) {
+      if (window.scrollY <= 80) {
         props.setIsScrolledDown(false); 
      
       } else {

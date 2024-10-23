@@ -6,11 +6,13 @@ import { useInView } from "react-intersection-observer";
 import { useEffect, useState } from "react";
 import Navbar_ul from "./components/Navbar_ul";
 import { motion } from "framer-motion";
+import Project from "./components/Project";
 
 function App() {
   const [curentNav, setCurrentNav] = useState("Home");
   const { ref: ref1, inView: inView1 } = useInView({ threshold: 0.5 });
   const { ref: ref2, inView: inView2 } = useInView({ threshold: 0.5 });
+  const { ref: ref3, inView: inView3 } = useInView({ threshold: 0.5 });
   const [isScrolledDown, setIsScrolledDown] = useState(false);
 
   useEffect(() => {
@@ -20,11 +22,14 @@ function App() {
     if (inView2 && curentNav != "Skills") {
       setCurrentNav("Skills");
     }
-  }, [inView1, inView2]);
+    if (inView3 && curentNav != "Projects") {
+      setCurrentNav("Projects");
+    }
+  }, [inView1, inView2,inView3]);
 
   return (
     <>
-      <div className="fixed top-[20%] translate-y-[20%]   left-0 text-white  " >
+      <div className="fixed top-[20%] translate-y-[20%] z-50  left-0 text-white  " >
       <motion.div  
     className="h-96 pb-5 flex items-end"
     animate={{ x: !isScrolledDown ? -100 : 0, rotate: 90,y:-50 }}
@@ -40,6 +45,9 @@ function App() {
         </div>
         <div ref={ref2}>
           <Skills />
+        </div>
+        <div ref={ref3}>
+          <Project/>
         </div>
       </div>
     </>

@@ -78,11 +78,11 @@ const Skills = () => {
   return (
 
     <div  className='bg-gray-900 tab-break:p-36 p-10 pt-20 tab-break:pt-10 ' id='skills'>
-      <motion.h3 ref={ref1} variants={{hidden:{opacity:0,y:100},visible:{opacity:1,y:0,transition: { 
+      <motion.h3 ref={ref1} variants={{hidden:{opacity:0,y:75},visible:{opacity:1,y:0,transition: { 
         type: 'spring', 
         stiffness: 100, 
         damping: 10 
-      } }}} animate={inView1 ? "visible":"hidden"} className='text-white tab-break:text-4xl text-3xl glowtext  text-center mb-28'>Essential Tools I use </motion.h3>
+      } }}} animate={inView1 ? "visible":"hidden"} className='text-white tab-break:text-4xl text-3xl glowtext  text-center mb-16'>Essential Tools I use </motion.h3>
       <motion.div ref={ref}
       variants={containerVariants}
       initial="hidden"
