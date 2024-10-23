@@ -1,0 +1,23 @@
+.mainimage{
+    filter: drop-shadow(2px 2px 50px  #4169e1);
+    animation: float 2.5s ease-in-out infinite;
+}
+
+.main_heading , .paraGraph{
+    filter: drop-shadow(2px 2px 50px  #40a2e4);
+}
+
+@keyframes float {
+    0% {
+        filter: drop-shadow(2px 2px 50px  #40a2e4);
+      transform: translatey(0px);
+    }
+    50% {
+        filter: drop-shadow(2px 2px 50px  #40a2e4);
+      transform: translatey(-20px);
+    }
+    100% {
+        filter: drop-shadow(2px 2px 50px #40a2e4);
+      transform: translatey(0px);
+    }
+  }
