@@ -4,7 +4,6 @@
 }
 
 
-
 .glowtext{
   filter: drop-shadow(2px 2px 50px  #40a2e4);
 }
@@ -205,6 +204,7 @@
   }
   
   .drop-effect {
+    /* display: none; */
     position: absolute;
     z-index: 1;
     top: -2%;

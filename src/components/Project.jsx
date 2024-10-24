@@ -1,9 +1,11 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useState, useRef } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { useInView } from 'react-intersection-observer';
 import Project_Effect from './Project_Effect';
 
 const Project = () => {
+
+
     const { ref:ref1, inView:inView1 } = useInView({
         threshold: 0.1, 
       });
@@ -14,13 +16,12 @@ const Project = () => {
       });
 
       const x = useTransform(scrollYProgress, [0, 1], ["200vw", "-250vw"]);
-      useEffect(()=>{
-        console.log(x)
-      })
+      
       
 
   return (
-    <div  className='bg-gray-900 tab-break:pt-16  pt-20   h-[130vh]   text-white' id='projects'>
+    <>
+    <div  className='bg-gray-900 tab-break:pt-16  pt-20     text-white' id='projects'>
         <div className='h-screen flex flex-col'>
         <motion.h3 ref={ref1} variants={{hidden:{opacity:0,y:75},visible:{opacity:1,y:0,transition: { 
         type: 'spring', 
@@ -33,13 +34,13 @@ const Project = () => {
             x, 
             
             overflow:"hidden"
-          }}  className='uppercase  text-center whitespace-nowrap overflow-hidden'>From Concept to Work </motion.p>
+          }}  className='uppercase text-8xl text-center glowtext whitespace-nowrap overflow-hidden'>From Concept to Work </motion.p>
       </div>
       </div>
-      <div className='bg-gray-900'>
-        <Project_Effect/>
-      </div>
+      
     </div>
+    
+    </>
   )
 }
 

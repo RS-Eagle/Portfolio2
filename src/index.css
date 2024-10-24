@@ -4,6 +4,10 @@
 @tailwind utilities;
 
 
+html{
+    position: relative;
+}
+
 body{
     font-family: "Inter", sans-serif;
     font-optical-sizing: auto;
