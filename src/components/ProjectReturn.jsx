@@ -27,8 +27,10 @@ const ProjectReturn = ({setIsInView}) => {
     };
   }, []);
   return (
-    <div ref={divRef} className='bg-gray-900 '>
+    <div ref={divRef} className='bg-gray-900  '>
+     
       <Project/>
+
       <Project_Effect/>
     </div>
   )

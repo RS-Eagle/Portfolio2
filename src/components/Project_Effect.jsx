@@ -1,15 +1,17 @@
 import React from "react";
 import tictac from '../assets/img/tictac.png'
-import nextLogo from '../assets/img/nextjs-icon.png'
+
 import market from '../assets/img/market.png'
 import netcoder from '../assets/img/netcoder.png'
 import lib from '../assets/img/lib.png'
+
 
 import { motion } from "framer-motion";
 import { gsap } from "gsap";
 import { useEffect, useRef } from "react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useInView } from "react-intersection-observer";
+
 
 
 
@@ -76,7 +78,8 @@ const Project_Effect = () => {
       </div>
       <div ref={container} className="container text-white mx-auto py-20 relative">
         <div className="relative">
-        <div className="flex flex-wrap  justify-between  changeMargin m-10">
+        <div className="flex flex-wrap  justify-between  changeMargin m-10"
+        >
           <div className="w-full lg:w-1/3 newclassNamere1 responsive flex flex-col justify-center items-center">
             <h2 className={"default orange1 text-4xl glowtext text-white text-center my-5 "}>
             Website For Digital Marketing Agency

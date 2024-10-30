@@ -6,16 +6,20 @@ import { useInView } from "react-intersection-observer";
 import { useEffect, useState } from "react";
 import Navbar_ul from "./components/Navbar_ul";
 import { motion } from "framer-motion";
-import Project from "./components/Project";
 import About from "./components/About";
-import Project_Effect from "./components/Project_Effect";
 import ProjectReturn from "./components/ProjectReturn";
+import Contact from "./components/Contact";
+import PreLoader from "./components/PreLoader";
 
 function App() {
+
+  const [isVisible, setIsVisible] = useState(false);
+  
+   
   const [curentNav, setCurrentNav] = useState("Home");
   const [isInView, setIsInView] = useState(false);
   const { ref: ref1, inView: inView1 } = useInView({ threshold: 0.5 });
-  const { ref: ref2, inView: inView2 } = useInView({ threshold: 0.5 });
+  const { ref: ref2, inView: inView2 } = useInView({ threshold: 0.3 });
   const { ref: ref3, inView: inView3 } = useInView({ threshold: 0.5 });
   const { ref: ref4, inView: inView4 } = useInView({ threshold: 0.5 });
   const [isScrolledDown, setIsScrolledDown] = useState(false);
@@ -27,8 +31,7 @@ function App() {
     if (inView2 && curentNav != "Skills") {
       setCurrentNav("Skills");
     }
-    console.log(inView3);
-    if (isInView && curentNav != "Projects") {
+    if ((isInView && curentNav != "Projects") || (!inView1 && !inView2 && !inView4)) {
       setCurrentNav("Projects");
     }
     if (inView4 && curentNav != "About") {
@@ -38,7 +41,8 @@ function App() {
 
   return (
     <>
-      <div className="fixed top-[20%] translate-y-[20%] z-50  left-0 text-white  ">
+    <PreLoader/>
+      <div className={`fixed top-[20%] translate-y-[20%] ${!isScrolledDown?"-z-30":"z-30"}  left-0 text-white  `}>
         <motion.div
           className="h-96 pb-5 flex items-end"
           animate={{ x: !isScrolledDown ? -100 : 0, rotate: 90, y: -50 }}
@@ -49,14 +53,14 @@ function App() {
             delay: 0.1,
           }}
         >
-          <Navbar_ul props={{ curentNav, setCurrentNav, isScrolledDown }} />
+          <Navbar_ul props={{ curentNav, setCurrentNav, isScrolledDown,isVisible }} />
         </motion.div>
       </div>
 
-      <Navbar props={{ curentNav, setCurrentNav, isScrolledDown }} />
+      <Navbar props={{ curentNav, setCurrentNav, isScrolledDown ,setIsVisible,isVisible}} />
       <div>
         <div ref={ref1}>
-          <Hero props={{ isScrolledDown, setIsScrolledDown }} />
+          <Hero props={{ isScrolledDown, setIsScrolledDown ,setIsVisible,isVisible}} />
         </div>
         <div ref={ref2}>
           <Skills />
@@ -66,8 +70,11 @@ function App() {
           <ProjectReturn setIsInView={setIsInView}/>
           </div>
         </div>
+        <div >
+          <Contact props={{isVisible,setIsVisible}}/>
+        </div>
         <div ref={ref4}>
-          <About />
+          <About props={{isVisible,setIsVisible}}/>
         </div>
       </div>
     </>

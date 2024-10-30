@@ -7,7 +7,8 @@ export default {
   theme: {
     extend: {
       screens:{
-        'tab-break':'1000px'
+        'tab-break':'1000px',
+        'form-breal':'535px'
       }
     },
 
